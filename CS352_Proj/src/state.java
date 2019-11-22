@@ -25,7 +25,5 @@ public class state {
 	public String getInput() {
 		return this.currInput;
 	}
-	
-	
 
 }

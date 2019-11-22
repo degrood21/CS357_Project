@@ -1,20 +1,24 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.*;
 
 public class pdaAccept {
 	
-	Queue<state> states = new LinkedList<state>();
+	static Queue<state> states = new LinkedList<state>();
 
 	public static void main(String[] args) {
 		File text = new File("/Users/dylandegrood/Documents/GitHub/CS357_Project/CS357_Project/CS352_Proj/src/input.txt");
-		
+
 		int totalStates;
 		String[] alphabet;
 		String[] stackAlphabet;
 		int startState;
 		String[] endStates;
+		String[] tempTrans;
 		ArrayList<transition> transitions = new ArrayList<>();
+		String inputString;
+		state tempState;
 		
 		
 		Scanner scnr;
@@ -49,15 +53,26 @@ public class pdaAccept {
 	            System.out.println("line " + lineNumber + " :" + line);
 	            lineNumber++;
 	            
+	            tempTrans = line.split(" ");
+	        
+	            transition temp = new transition(Integer.parseInt(tempTrans[0]), tempTrans[1], tempTrans[2], Integer.parseInt(tempTrans[3]), tempTrans[4]);
 	            
-	            
+	            transitions.add(temp);
+	          
 	        }
+	        
+	        scnr.close();
+
+            Scanner scanner = new Scanner(System.in);
+            inputString = scanner.nextLine();
+            //Setting up first state
+            tempState = new state(transitions, inputString, startState);
+            states.add(tempState);
 	        
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 		
 		
