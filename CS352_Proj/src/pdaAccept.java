@@ -9,11 +9,13 @@ public class pdaAccept {
 	public static void main(String[] args) {
 		File text = new File("/Users/dylandegrood/Documents/GitHub/CS357_Project/CS357_Project/CS352_Proj/src/input.txt");
 		
-		int totalStates;;
+		int totalStates;
 		String[] alphabet;
 		String[] stackAlphabet;
 		int startState;
 		String[] endStates;
+		ArrayList<transition> transitions = new ArrayList<>();
+		
 		
 		Scanner scnr;
 		try {
@@ -42,15 +44,21 @@ public class pdaAccept {
 			
 	        int lineNumber = 1;
 	        while(scnr.hasNextLine()){
+	        	
 	            String line = scnr.nextLine();
 	            System.out.println("line " + lineNumber + " :" + line);
 	            lineNumber++;
 	            
+	            
+	            
 	        }
+	        
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 		
 		
 	}
